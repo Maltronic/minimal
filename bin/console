@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Debug\Debug;
+
+umask(0000);
+
+set_time_limit(0);
+
+/**
+ * @var Composer\Autoload\ClassLoader $loader
+ */
+$loader = require_once __DIR__ . '/../autoload.php';
+
+// load .env variables into $_SERVER array
+$envLoader = new \Dotenv\Dotenv(__DIR__ . '/../');
+$envLoader->load();
+$env = $_SERVER['SYMFONY_ENV'];
+$debug = $_SERVER['SYMFONY_DEBUG'];
+
+$input = new ArgvInput();
+
+if ($debug) {
+    Debug::enable();
+}
+
+$kernel = new AppKernel($env, $debug);
+$application = new Application($kernel);
+$application->run($input);

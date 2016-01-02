@@ -1,0 +1,11 @@
+/config/parameters.yml
+/build/
+/phpunit.xml
+/vendor/
+/web/bundles/
+/logs/*
+!/logs/.gitkeep
+/cache/*
+!/cache/.gitkeep
+.env
+.idea

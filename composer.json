@@ -1,0 +1,19 @@
+{
+  "name": "maltronic/minimal",
+  "description": "Barebones Symfony3 framework - a micro framework which can grow into a full framework",
+  "require": {
+    "symfony/symfony": "^3.0",
+    "sensio/framework-extra-bundle": "^3.0",
+    "guzzlehttp/guzzle": "^6.1",
+    "vlucas/phpdotenv": "^2.2",
+    "symfony/monolog-bundle": "^2.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "AppBundle\\": "src/AppBundle/"
+    },
+    "classmap": [
+      "AppKernel.php"
+    ]
+  }
+}
